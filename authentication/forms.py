@@ -57,11 +57,11 @@ class signup_form(forms.Form):
 
 class Forget_pass(forms.Form):
     username = forms.CharField(widget=forms.TextInput(attrs={
-        'class': 'input pass',
+        'class': 'form-control',
         "placeholder":"User Name"
     }))
     phone_number = forms.CharField(widget=forms.TextInput(attrs={
-        'class': 'input pass',
+        'class': 'form-control',
         "placeholder":"Phone number"
     }))
 
