@@ -21,7 +21,7 @@ class signup_form(forms.Form):
     user_name = forms.CharField(
         widget=forms.TextInput(
             attrs= {
-                'class':'input',
+                "class":"form-control",
                 'placeholder':"UserName"
             }
         )
@@ -30,7 +30,7 @@ class signup_form(forms.Form):
         required=False,
         widget=forms.TextInput(
             attrs={
-                'class': 'input pass',
+                "class":"form-control",
                 'placeholder':"Email(Optional)"
             }
         )
@@ -39,7 +39,7 @@ class signup_form(forms.Form):
     password = forms.CharField(
         widget = forms.TextInput(
             attrs={
-                'class': 'input pass',
+                "class":"form-control",
                 'placeholder':"Password"
 
             }
@@ -48,7 +48,7 @@ class signup_form(forms.Form):
     confirm_password = forms.CharField(
         widget=forms.TextInput(
             attrs={
-                'class': 'input pass',
+                "class":"form-control",
                 'placeholder':"Confirm password"
             }
         )

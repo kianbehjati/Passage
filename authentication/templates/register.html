@@ -1,7 +1,7 @@
 {% extends "_Base/Base.html" %}
 {% load static %}
 {% block content %}
-    <div class="content col-8 offset-2">
+<!-- <div class="content col-8 offset-2">
         <h1>SingUp</h1>
         <form action="" class="col-12 col-lg-6 offset-lg-3 col-md-6 offset-md-3 form" method="post">
             {% csrf_token %}
@@ -40,14 +40,61 @@
                 SingUp
             </button>
         </form>
+    </div> -->
+<div class="container min-vh-100 d-flex justify-content-center py-5 content" style="margin-bottom: 150px;">
+    <div class="card border-0 shadow-lg login-card">
+        <div class="card-body p-4 p-md-5">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold mb-2 welcome">Welcome Back</h2>
+                <p class="text-secondary mb-0">
+                    Sign in to continue to your account.
+                </p>
+            </div>
+
+            <form action="" method="post">
+                {% csrf_token %}
+                <div class="mb-4">
+                    <label class="form-label">Username</label>
+                    {{ form.user_name }}
+                </div>
+                <div class="mb-4">
+                    <label class="form-label">Email</label>
+                    {{ form.email }}
+                </div>
+                <div class="input-box phone mb-4">
+                    <label class="form-label">Phone Number</label>
+                    <input type="tel" class="form-control" placeholder="Phone Number" id="phone-input"
+                        name="phone_input">
+                </div>
+          
+                <div class="mb-4">
+                    <label class="form-label mb-0">Password</label>
+                    {{ form.password }}
+                </div>
+                <div class="mb-4">
+                    <label class="form-label mb-0">Password</label>
+                    {{ form.confirm_password }}
+                </div>
+                {% for err in form.non_field_errors %}
+                <p class="error">*{{ err }}</p>
+                {% endfor %}
+
+                <button class="btn btn-primary w-100 py-3 fw-semibold" type="submit">
+                    Signup
+                </button>
+
+            </form>
+
+        </div>
     </div>
+</div>
+
 {% endblock %}
 {% block link %}
-    <link rel="stylesheet" href="{% static "css/login.css" %}">
-    <link rel="stylesheet" href="{% static "css/register.css" %}">
-    <link rel="stylesheet" href="{% static "css/content.css" %}">
+<link rel="stylesheet" href="{% static "css/login.css" %}">
+<link rel="stylesheet" href="{% static "css/content.css" %}">
 {% endblock %}
 
 {% block script %}
-    <script src="{% static 'js/register.js' %}"></script>
+<script src="{% static "js/register.js" %}"></script>
 {% endblock %}
