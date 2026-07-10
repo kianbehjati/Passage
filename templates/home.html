@@ -3,13 +3,12 @@
 
 {% block link %}
     <link rel="stylesheet" href="{% static "css/home.css" %}">
-
 {% endblock %}
 
 
 {% block content %}
 <div>
-    <div class="content col-lg-8 offset-lg-2 col-md-10 offset-md-1">
+    <!-- <div class="content col-lg-8 offset-lg-2 col-md-10 offset-md-1">
         <div class="row">
             <div class="col-lg-1"></div>
             <div class="about col-lg-6 col-10">
@@ -48,7 +47,34 @@
                 </p>
             </div>
         </div>
-</div>
+    </div> -->
+    <div class="container">
+        <div class="row hero-copy">
+            <div class="col-lg-4 col-md-6">
+                <h1>
+                    Send Money <br>abroad.<br>
+                    Track it  
+                    <em>
+                        like a flight
+                    </em>
+                </h1>
+                <button>
+                    <a href="{% url 'transfer' %}">Start a transfer</a>
+                </button>
+
+            </div>
+            <div class="col-lg-8 col-md-6 description">
+                <p>
+                    Passage is a global money transfer service that allows you<br>
+                    to send money abroad at the interbank rate.<br>
+                    We use real banking rails to move your money,<br>
+                    so you can track it like a flight and know exactly when it will arrive.<br>
+                </p>
+            </div>
+        </div>
+        
+    </div>
+    
 </div>
 
 {% endblock %}
