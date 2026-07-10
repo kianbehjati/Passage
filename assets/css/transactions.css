@@ -35,3 +35,17 @@
         max-width: 80px;
     }
 }
+
+body {
+    color: var(--text-on-ink);
+}
+.content {
+    margin-bottom: 120px;
+    border: var(--primary) 2px solid; 
+    padding: 10px 10px;
+    border-radius: 15px;
+    margin-top: 20px;
+    -webkit-box-shadow: 0px 0px 18px 0px #3E7BD8; 
+    box-shadow: 0px 0px 18px 0px #3E7BD8;
+    background-color: var(--light-black);
+}

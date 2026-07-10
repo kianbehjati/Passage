@@ -1,4 +1,4 @@
-
+/* 
 .border {
     border: white;
     border-style: solid;
@@ -81,4 +81,36 @@ p {
         margin-bottom: 15px;
     }
 }
-
+ */
+.hero-copy {
+    margin-top: 100px;
+    font-family: var(--sans);
+    color: var(--text-on-ink);
+    text-align: left;
+}
+.hero-copy h1 {
+    font-size: 40px;
+    line-height: 1.3;
+}
+.hero-copy em {
+    font-size: 45px;
+    font-weight: bold;
+    font-family: var(--serif);
+    color: var(--primary);
+}
+.hero-copy button {
+    background-color: var(--primary);
+    border-radius: 20px;
+    border: none;
+    padding: 10px 10px;
+}
+.hero-copy button a {
+    text-decoration: underline;
+    color: var(--secondary);
+}
+.description {
+    font-size: 20px;
+    opacity: 0.6;
+    line-height: 2.3;
+    text-align: left;
+}

@@ -1,4 +1,4 @@
-.footer{
+/* .footer{
     width: 100%;
     height: 50px;
     background-color: #f4f4f4;
@@ -70,15 +70,9 @@
         position: static;
         margin-top: 200px;
     }
-    /*.footer-middle{*/
-    /*    padding-left: 45px;*/
-    /*}*/
-    /*.stay-in-touch{*/
-    /*    padding-left: 35px;*/
-    /*}*/
-}
+} */
 
-@media screen and (min-width: 1000px) {
+/* @media screen and (min-width: 1000px) {
     .footer{
         width: 100%;
         height: 150px;
@@ -89,4 +83,44 @@
 }
 .gps {
     padding-left: 5px;
+} */
+.footer-passage {
+    background: var(--secondary);
+    color: var(--text-on-ink);
+    border-top: 1px solid rgba(242, 238, 224, .16);
+    position: fixed;
+    bottom: 0;
+    height: 170px;
+}
+
+.footer-passage a {
+    color: var(--text-on-ink);
+    opacity: .85;
+    text-decoration: none;
+}
+
+.footer-passage a:hover {
+    opacity: 1;
+}
+
+.footer-passage h6 {
+    font-family: var(--mono);
+    font-size: .72rem;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: rgba(242, 238, 224, .66);
+    font-weight: 500;
+}
+
+.footer-brand-passage {
+    font-family: var(--serif);
+    font-style: italic;
+}
+
+.fineprint-passage {
+    font-family: var(--mono);
+    font-size: .75rem;
+    color: rgba(242, 238, 224, .66);
+    max-width: 32ch;
+    line-height: 1.6;
 }

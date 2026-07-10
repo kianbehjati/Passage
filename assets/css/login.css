@@ -1,5 +1,5 @@
-.form {
-    background-color: #f4f4f4;
+/* .form {
+    background-color: var(--primary);
     border-radius: 5px;
     padding: 20px 0 20px 0;
 }
@@ -20,10 +20,7 @@
     font-size: 17px;
 }
 
-.error {
-    margin-top: 15px;
-    color: #c75959;
-}
+
 .pass {
     margin-top: 40px;
 }
@@ -49,4 +46,91 @@ button:hover {
 }
 button:focus {
     background-color: #8382ff;
+} */
+.login-card {
+    width: 100%;
+    max-width: 430px;
+    background: #171A1F;
+    border-radius: 22px;
+    height: fit-content;
+}
+
+.form-control {
+    background: #111418;
+    border: 1px solid #2A2E36;
+    color: #fff;
+    height: 54px;
+    border-radius: 12px;
+}
+
+.form-control::placeholder {
+    color: #7B818B;
+}
+
+.form-control:focus {
+    background: #111418;
+    color: #fff;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 .2rem rgba(62, 123, 216, .18);
+}
+
+.form-label {
+    color: #C8CDD4;
+    font-weight: 500;
+}
+
+.form-check-label {
+    color: #A8AFBA;
+}
+
+.form-check-input {
+    background: #111418;
+    border-color: #444;
+}
+
+.form-check-input:checked {
+    background-color: var(--primary);
+    border-color: var(--primary);
+}
+
+.btn-primary {
+    background: var(--primary);
+    border: none;
+    border-radius: 12px;
+    transition: .25s;
+}
+
+.btn-primary:hover {
+    background: #4A87E5;
+    transform: translateY(-1px);
+}
+
+.forgot-link,
+.signup-link {
+    color: var(--primary);
+}
+
+.text-secondary {
+    color: #9BA3AF !important;
+}
+
+@media (max-width:576px) {
+    .login-card {
+        border-radius: 18px;
+    }
+
+    .card-body {
+        padding: 2rem !important;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+    }
+}
+.welcome {
+    color: var(--text-on-ink);
+}
+.error {
+    margin-top: 15px;
+    color: #c75959;
 }
