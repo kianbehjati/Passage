@@ -70,7 +70,7 @@ class Change_pass(forms.Form):
     password = forms.CharField(
         widget=forms.TextInput(
             attrs={
-                'class': 'input pass',
+                'class': 'form-control',
                 'placeholder': "Password"
 
             }
@@ -79,7 +79,7 @@ class Change_pass(forms.Form):
     confirm_password = forms.CharField(
         widget=forms.TextInput(
             attrs={
-                'class': 'input pass',
+                'class': 'form-control',
                 'placeholder': "Confirm password"
             }
         )
