@@ -11,7 +11,7 @@ from django.views.generic.edit import FormView
 from django.core.mail import send_mail
 from django.conf import settings
 import datetime
-
+from django_q.tasks import async_task
 
 def is_auth(request) -> bool:
     return request.user.is_authenticated
@@ -283,14 +283,8 @@ def signup_view(request):
                         myUser.objects.create_user(username=username, phone_number=phone_number, email=email, password=password)
                         user = authenticate(username=username, password=password)
                         login(request,user)
-
-                        send_mail(
-                            subject="Congrats new member",
-                            message=f"Hi dear {user.username} \n we wish you best experience \n\n درود {user.username} به وبسایت من خوش امدید و بهترین تجربه رو برای شما ارزومند هستم",
-                            from_email=settings.EMAIL_HOST_USER,
-                            recipient_list=[user.email],
-                            fail_silently=True
-                        )
+                        
+                        async_task("authentication.tasks.send_email",user.email,user.username)
                         return redirect(resolve_url('authentication:userpanel'))
     else:
         return redirect(f'/auth/logout?next={resolve_url("authentication:signup")}')
