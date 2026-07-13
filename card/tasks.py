@@ -2,15 +2,23 @@ from django.db.models import Sum
 from .models import Card,Factor
 from django.shortcuts import resolve_url
 from django_q.tasks import async_task
+from django.conf import settings
+import csv
+from authentication.models import myUser
 
-### monitoring functions ###
+### monitoring & report functions ###
 def total_balance():
     total = Card.objects.aggregate(Sum('balance'))
     return total["balance__sum"]
 
 def important_users():
-    users = Card.objects.filter(balance__gt=1000).count()
-    return users
+    users = myUser.objects.filter(card__balance__gt = 1000).values("username","phone_number","email")
+    with open(f"{settings.MEDIA_ROOT}/important_users.csv","w") as f:
+        writter = csv.DictWriter(f=f,fieldnames=["username","phone_number","email"])
+        writter.writeheader()
+        writter.writerows(list(users))
+        f.close()
+    return users.count()
 
 def unpaid_factors():
     unpaid_factors = Factor.objects.filter(status="N") # cache this since it's being called multiple times
