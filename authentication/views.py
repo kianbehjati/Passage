@@ -13,19 +13,20 @@ from django.conf import settings
 import datetime
 from django_q.tasks import async_task
 from .validate_phone import *
+import string
 
 def is_auth(request) -> bool:
     return request.user.is_authenticated
 
-def pass_validate(pass1,pass2):
+def pass_validate(pass1: str,pass2: str) -> bool | str:
     if pass1 == pass2:
 
         if len(pass1) < 8:
             return "your password should be at least 8 char length"
         else:
-            chars = "QWERTYUIOPASDFGHJKLZXCVBNM"
-            nums = "1234567890"
-            specials = "!@#$%^&*"
+            chars = string.ascii_uppercase
+            nums = string.digits
+            specials = string.punctuation
 
             is_upper = False
             is_lower = False
@@ -42,7 +43,7 @@ def pass_validate(pass1,pass2):
                 elif char in specials:
                     is_special_char = True
                 else:
-                    continue
+                    return "please use A-Z, a-z , 0-9 and sepcial characters(!@#$%^&*) in your password"
 
             if is_upper and is_lower and is_num and is_special_char:
                 return True
