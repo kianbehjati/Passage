@@ -12,6 +12,7 @@ from django.core.mail import send_mail
 from django.conf import settings
 import datetime
 from django_q.tasks import async_task
+from .validate_phone import *
 
 def is_auth(request) -> bool:
     return request.user.is_authenticated
@@ -139,7 +140,14 @@ def userEdit(request):
                 if myUser.objects.filter(phone_number=phone_number).exists():
                     context["err"] = "an other user use same Phone Number"
                     return render(request, 'user-edit.html', context)
+                
+                if phone_number[0] != "+":
+                    phone_number = "+" + phone_number
 
+                if not is_valid(phone_number):
+                    context["err"] = "Phone number is not valid"
+                    return render(request, 'user-edit.html', context=context)
+                
                 user = myUser.objects.get(id=request.user.id)
                 user.username = username
                 user.email = email
@@ -168,6 +176,13 @@ def userEdit(request):
                 if myUser.objects.filter(phone_number=phone_number).exists():
                     context["err"] = "an other user use same Phone Number"
                     return render(request, 'user-edit.html', context)
+                
+                if phone_number[0] != "+":
+                    phone_number = "+" + phone_number
+
+                if not is_valid(phone_number):
+                    context["err"] = "Phone number is not valid"
+                    return render(request, 'user-edit.html', context=context)
                 user = myUser.objects.get(id=request.user.id)
                 user.username = username
                 user.phone_number = phone_number
@@ -181,6 +196,12 @@ def userEdit(request):
                 if myUser.objects.filter(email=email).exists():
                     context["err"] = "an other user use same Email"
                     return render(request, 'user-edit.html', context)
+                if phone_number[0] != "+":
+                    phone_number = "+" + phone_number
+
+                if not is_valid(phone_number):
+                    context["err"] = "Phone number is not valid"
+                    return render(request, 'user-edit.html', context=context)
                 user = myUser.objects.get(id=request.user.id)
                 user.email = email
                 user.phone_number = phone_number
@@ -216,6 +237,14 @@ def userEdit(request):
                 if myUser.objects.filter(phone_number=phone_number).exists():
                     context["err"] = "an other user use same Phone Number"
                     return render(request, 'user-edit.html', context)
+                
+                if phone_number[0] != "+":
+                    phone_number = "+" + phone_number
+
+                if not is_valid(phone_number):
+                    context["err"] = "Phone number is not valid"
+                    return render(request, 'user-edit.html', context=context)
+                
                 user = myUser.objects.get(id=request.user.id)
                 user.phone_number = phone_number
                 user.save()
@@ -250,13 +279,14 @@ def signup_view(request):
 
             else:
                 user = myUser.objects.filter(Q(username=username) | Q(phone_number=phone_number.replace(" ","")) | Q(email=email))
-
+                
                 if phone_number == "":
-                    signup_for.add_error(field=None, error="you should enter a phone number")
+                    signup_for.add_error(field=None, error="you should enter a valid phone number")
                     return render(request, 'register.html', context=context)
-
-                if len(phone_number) > 14:
-                    signup_for.add_error(field=None, error="something is wrong with your phone number")
+                if phone_number[0] != "+":
+                    phone_number = "+" + phone_number
+                if not is_valid(phone_number):
+                    signup_for.add_error(field=None, error="you should enter a valid phone number")
                     return render(request, 'register.html', context=context)
 
                 if user:

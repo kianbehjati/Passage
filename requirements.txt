@@ -9,6 +9,7 @@ django-q2==1.10.0
 djangorestframework==3.17.1
 idna==3.18
 markdown==3.10.2
+phonenumbers==9.0.34
 psycopg==3.3.4
 psycopg-binary==3.3.4
 redis==8.0.1
