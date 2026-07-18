@@ -23,7 +23,7 @@
   <a href="#configuration">Configuration</a> •
   <a href="#testing">Testing</a> •
   <a href="#performance-optimizations">Performance Optimizations</a> •
-  <a href="#license">License</a>
+  <a href="https://github.com/kianbehjati/Passage/blob/main/LICENSE">License</a>
 </p>
 
 <br>
