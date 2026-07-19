@@ -5,7 +5,7 @@
 <img alt="Static Badge" src="https://img.shields.io/badge/python-3.10%20%7C%203.11%20%7C%203.12%20%7C%203.13%20%7C%203.14%20-3776AB">
 <img alt="Static Badge" src="https://img.shields.io/badge/django--Q2-1.10.0-5E35B1">
 <img alt="Static Badge" src="https://img.shields.io/badge/dockerized-gray?logo=docker">
-<img alt="Static Badge" src="https://img.shields.io/badge/License-MIT-blue">
+<img alt="Static Badge" src="https://img.shields.io/badge/License-No License-red">
 <img alt="Static Badge" src="https://img.shields.io/badge/Coverage-82%25-green">
 <img alt="Static Badge" src="https://img.shields.io/badge/8.8.0-black?logo=redis&logoSize=big">
 <img alt="Static Badge" src="https://img.shields.io/badge/18.4-black?logo=postgresql&logoSize=big">
