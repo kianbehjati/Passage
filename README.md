@@ -23,6 +23,7 @@
   <a href="#configuration">Configuration</a> •
   <a href="#testing">Testing</a> •
   <a href="#performance-optimizations">Performance Optimizations</a> •
+  <a href="#usage">Usage</a> •
   <a href="https://github.com/kianbehjati/Passage/blob/main/LICENSE">License</a>
 </p>
 
@@ -104,7 +105,7 @@ for more information on Testing Checkout [this](https://docs.djangoproject.com/e
 
 - Redis-based caching for frequently accessed data(unpaid_factors list)
 - Reduced unnecessary database queries
-- Improved response times for repeated requests(up to 2 times faster)
+- Improved response times for repeated requests(up to **10** times faster)
 - Cache invalidation strategy for updated data(unpaid_factors)
 - **NoCache** Analyses query _vs_ **Cached** time taken:
 <img width="925" height="100" alt="cache" src="https://github.com/user-attachments/assets/0be3dc4f-7149-4766-96ce-3eb4f5179d18" />
@@ -114,7 +115,8 @@ for more information on Testing Checkout [this](https://docs.djangoproject.com/e
 - Django Q2 for handling time-consuming tasks asynchronously
 - Moved heavy operations away from the request-response cycle
 - Improved application responsiveness and user experience
-
+- Performing report and monitoring functions in background (unpaid factor notifications, payment email notification to both sender and receiver)
+  
 ### Why ***"Q2"*** and not ***"Celery"***:
 | | Celery | Django Q2 |
 |-|-|-|
@@ -122,3 +124,9 @@ for more information on Testing Checkout [this](https://docs.djangoproject.com/e
 | Setup | More complex | Simple Django integration |
 | Scalability | Large distributed systems | Small to medium Django applications |
 | Broker | Redis/RabbitMQ/... | Redis/ORM(defaul DB)/Amazon SQS/MongoDB |
+
+<br>
+
+# Usage
+https://github.com/user-attachments/assets/c26540e0-ccd5-4dd1-99d7-b6909c62fd58
+
