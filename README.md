@@ -130,3 +130,5 @@ for more information on Testing Checkout [this](https://docs.djangoproject.com/e
 # Usage
 https://github.com/user-attachments/assets/c26540e0-ccd5-4dd1-99d7-b6909c62fd58
 
+# License 
+All Rights Reserved
